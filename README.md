@@ -9,7 +9,7 @@ Find and replace all on all files (CMD+SHIFT+F):
 
 # My Module
 
-![Laravel42 Hero image](https://raw.githubusercontent.com/Laravel42/nuxt-state-monitor/main/Light-image.webp)
+![Laravel42 Hero image](https://raw.githubusercontent.com/Laravel42/nuxt-state-monitor/main/Nuxt-state-monitor-hero%20copia.webp)
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
