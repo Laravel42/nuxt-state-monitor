@@ -140,7 +140,9 @@
             }
 
             & code {
-                @apply font-debug text-xs overflow-hidden font-semibold;
+                font-family: "Zilla Slab", 'sans-serif' !important;
+                font-weight: 400;
+                @apply text-xs overflow-hidden;
 
                 .code-l42-attr {
                     counter-increment: section;
