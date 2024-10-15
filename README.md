@@ -11,16 +11,9 @@ Find and replace all on all files (CMD+SHIFT+F):
 
 ![Laravel42](./cover.webp)
 
-[![npm version][npm-version-src]][npm-version-href]
-[![npm downloads][npm-downloads-src]][npm-downloads-href]
-[![License][license-src]][license-href]
-[![Nuxt][nuxt-src]][nuxt-href]
-
-
 # Nuxt State Monitor
 
 ![Nuxt State Monitor](https://img.shields.io/badge/Nuxt-3.x-brightgreen.svg)
-![License](https://img.shields.io/github/license/yourusername/nuxt-state-monitor)
 
 **Nuxt State Monitor** is a lightweight Nuxt module that allows you to monitor and edit all variables stored in Nuxt's native state, including custom data of any type. This is useful for debugging, managing state, and keeping track of custom runtime data in a seamless and developer-friendly way.
 
@@ -62,7 +55,6 @@ Add the component in App.vue to enable monitor everywhere, or in single pages if
 ## Requirements
 
 - Nuxt 3.x
-- Vue 3.x
 
 ## License
 
@@ -72,7 +64,4 @@ This repository is licensed under the [MIT License](LICENSE). Feel free to use t
 
 🔖 **Mail**: hello@laravel42.com
 
-## License
-
-[MIT](./LICENSE) - Made with 💚 by [Laravel42](https://laravel42.com)
-
+🔖 **Web**: https://laravel42.com
