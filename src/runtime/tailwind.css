@@ -2,183 +2,170 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-:root {
-    --l42-1: #5316D8;
-    --l42-1-dark: #818CF8;
-}
-
-input[type="search"]::-webkit-search-decoration,
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-results-button,
-input[type="search"]::-webkit-search-results-decoration {
-    display: none;
-}
-
-/* Tooltip styles */
-.tooltip {
-    position: relative;
-}
-
-.tooltip .tooltiptext {
-    visibility: hidden;
-    width: fit-content;
-    background-color: #555;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 0.5rem 0.5rem;
-    position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -60px;
-    opacity: 0;
-    transition: all 0.5s ease;
-
-}
-
-.tooltip .tooltiptext::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
-}
-
-.tooltip:hover .tooltiptext {
-    display: initial;
-    visibility: visible;
-    opacity: 1;
-}
-
-/* Nuxt Monitor main component */
-
-@keyframes slideIn {
-    from {
-        margin-top: -100%
+@layer {
+    :root {
+        --l42-1: #5316D8;
+        --l42-1-dark: #818CF8;
     }
-    to {
-        margin-top: 0;
+
+    .font-debug {
+        font-family: 'Zilla Slab', serif !important;
     }
-}
 
-.show_element {
-    min-height: 28px;
-    overflow: hidden;
-
-    & pre {
-        font-size: 12px;
-        font-weight: 400;
-        font-family: 'Zilla Slab', serif;
-        animation-duration: 0.4s;
-        animation-name: slideIn;
-        animation-timing-function: cubic-bezier(.16, 1.03, 1, 1);
-        animation-fill-mode: forwards;
+    input[type="search"]::-webkit-search-decoration,
+    input[type="search"]::-webkit-search-cancel-button,
+    input[type="search"]::-webkit-search-results-button,
+    input[type="search"]::-webkit-search-results-decoration {
+        display: none;
     }
-}
 
-.check-container {
-    border-radius: 12px;
-    background-color: #E2E8F0;
-    display: flex;
+    /* Tooltip styles */
+    .tooltip {
+        position: relative;
+    }
 
-    .true-check {
-        transition: 0.5s all ease-in-out;
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: fit-content;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 0.5rem 0.5rem;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -60px;
         opacity: 0;
+        transition: all 0.5s ease;
+
     }
 
-    .false-check {
-        transition: 0.5s all ease-in-out;
-        opacity: 1;
-        transform: translateX(-100%);
+    .tooltip .tooltiptext::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
     }
-}
 
-input:checked + .check-container {
-    background-color: #00C16A;
-
-    .true-check {
-        transform: translateX(100%);
+    .tooltip:hover .tooltiptext {
+        display: initial;
+        visibility: visible;
         opacity: 1;
     }
 
-    .false-check {
-        opacity: 0;
-        transform: translateX(0);
-    }
-}
+    /* Nuxt Monitor main component */
 
-
-::-webkit-scrollbar {
-    @apply dark:bg-zinc-700 bg-zinc-200 p-2 w-[8px] h-[8px] rounded-md;
-}
-
-::-webkit-scrollbar-track {
-    @apply bg-transparent;
-}
-
-::-webkit-scrollbar-thumb {
-    @apply bg-neutral-400 rounded-md w-[1px];
-}
-
-.empty {
-    @apply text-zinc-500 italic font-debug text-xs font-normal;
-}
-
-/* Code editor */
-.code-editor {
-    @apply relative dark:bg-zinc-800 dark:border-zinc-700 border bg-neutral-200 h-fit rounded-md mt-2 w-full;
-
-    .code-l42-line {
-        @apply dark:text-neutral-200 text-l42-1;
-        user-select: none;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
+    @keyframes slideIn {
+        from {
+            margin-top: -100%
+        }
+        to {
+            margin-top: 0;
+        }
     }
 
-    & pre {
-        @apply overflow-hidden w-full;
+    .show_element {
+        min-height: 28px;
+        overflow: hidden;
 
-        &.collapsed {
-            @apply px-1.5 py-0.5;
+        & pre {
+            font-size: 12px;
+            font-weight: 400;
+            font-family: 'Zilla Slab', serif;
+            animation-duration: 0.4s;
+            animation-name: slideIn;
+            animation-timing-function: cubic-bezier(.16, 1.03, 1, 1);
+            animation-fill-mode: forwards;
+        }
+    }
 
-            [class^="code-l42-"] {
-                @apply px-0.5;
-            }
+    input:checked + .check-container {
+        background-color: #00C16A;
+
+        .true-check {
+            transform: translateX(100%);
+            opacity: 1;
         }
 
-        & code {
-            @apply font-debug text-xs overflow-hidden;
+        .false-check {
+            opacity: 0;
+            transform: translateX(0);
+        }
+    }
 
-            .code-l42-attr {
-                counter-increment: section;
-                @apply dark:text-neutral-200 text-zinc-900;
+
+    ::-webkit-scrollbar {
+        @apply dark:bg-zinc-700 bg-zinc-200 p-2 w-[8px] h-[8px] rounded-md;
+    }
+
+    ::-webkit-scrollbar-track {
+        @apply bg-transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply bg-neutral-400 rounded-md w-[1px];
+    }
+
+    .empty {
+        @apply text-zinc-500 italic font-debug text-xs font-normal;
+    }
+
+    /* Code editor */
+    .code-editor {
+        @apply relative dark:bg-zinc-800 dark:border-zinc-700 border bg-neutral-200 h-fit rounded-md mt-2 w-full;
+
+        .code-l42-line {
+            @apply dark:text-neutral-200 text-l42-1;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+
+        & pre {
+            @apply overflow-hidden w-full;
+
+            &.collapsed {
+                @apply px-1.5 py-0.5;
+
+                [class^="code-l42-"] {
+                    @apply px-0.5;
+                }
             }
 
-            .code-l42-string {
-                @apply dark:text-l42-1-dark text-l42-1;
-            }
+            & code {
+                font-family: "Zilla Slab", 'sans-serif' !important;
+                font-weight: 400;
+                @apply text-xs overflow-hidden;
 
-            .code-l42-number {
-                @apply dark:text-l42-1-dark text-l42-1;
-            }
+                .code-l42-attr {
+                    counter-increment: section;
+                    @apply dark:text-neutral-200 text-zinc-900;
+                }
 
-            .code-l42-keyword {
-                @apply dark:text-l42-1-dark text-l42-1;
-            }
+                .code-l42-string {
+                    @apply dark:text-l42-1-dark text-l42-1;
+                }
 
-            .code-l42-punctuation {
-                counter-increment: section;
-                @apply dark:text-zinc-400 text-zinc-900;
+                .code-l42-number {
+                    @apply dark:text-l42-1-dark text-l42-1;
+                }
+
+                .code-l42-keyword {
+                    @apply dark:text-l42-1-dark text-l42-1;
+                }
+
+                .code-l42-punctuation {
+                    counter-increment: section;
+                    @apply dark:text-zinc-400 text-zinc-900;
+                }
             }
         }
     }
 }
-
-
-
-

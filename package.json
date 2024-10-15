@@ -36,6 +36,7 @@
     "@nuxtjs/tailwindcss": "^6.12.1",
     "highlight.js": "^11.10.0",
     "nuxt": "^3.13.2",
+    "nuxt-headlessui": "^1.2.0",
     "tailwindcss": "^3.4.11"
   },
   "devDependencies": {
@@ -50,7 +51,6 @@
     "eslint": "^8.56.0",
     "eslint-plugin-vue": "^9.28.0",
     "globals": "^15.9.0",
-    "nuxt-headlessui": "^1.2.0",
     "sass": "^1.79.5",
     "typescript": "^5.5.4",
     "typescript-eslint": "^8.7.0",
