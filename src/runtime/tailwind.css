@@ -136,6 +136,9 @@
             }
 
             & code {
+                font-weight: 400;
+                font-family: 'Zilla Slab', serif !important;
+
                 @apply font-debug text-xs overflow-hidden;
 
                 .code-l42-attr {
