@@ -307,7 +307,7 @@ watch(() => colorMode.preference, (newPreference) => {
         open ? 'translate-x-0' : '-translate-x-full'
     ]">
     <div
-        class="flex flex-col h-full shadow-md w-screen sm:min-w-[530px] sm:w-[530px] max-w-[1400px] resize-x py-4 px-2 overflow-y-auto dark:bg-zinc-900 bg-white dark:text-white">
+        class="flex flex-col h-full shadow-md w-screen min-w-[300px] max-w-[90vw] sm:min-w-[530px] sm:w-[530px] resize-x py-4 px-2 overflow-y-auto dark:bg-zinc-900 bg-white dark:text-white">
     <div>
         <!-- Top Header -->
         <div class="flex justify-between items-center">
