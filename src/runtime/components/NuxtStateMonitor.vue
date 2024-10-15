@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import {ref, watch, toRaw} from "vue";
-import {__PREFIX, __RESERVED} from "../utils/constants"
+import {__PREFIX, __RESERVED, colorMode as __COLOR_MODE} from "../utils/constants"
 import {__JSON, isObject} from "../utils"
 import NuxtStateMonitorList from "./NuxtStateMonitorList.vue";
 import Light from "../icons/LightIcon.vue";
 import Moon from "../icons/MoonIcon.vue";
 import {StateData, UpdatedState, ValueType, ViewState} from "../utils/interfaces";
-import {Switch} from '@headlessui/vue'
+import {Switch} from '@headlessui/vue';
+import {useState} from 'nuxt/app';
 
 const updated = ref<UpdatedState>({
   key: null,
@@ -80,12 +81,12 @@ const copyToClipboard = (key: string, isAdditional: boolean = false) => {
 const exportJsonState = (): void => {
   const rawState = toRaw(state);
   const rawValues = Object.keys(rawState).reduce((acc: Record<string, unknown>, key: string) => {
-    if (key.startsWith(__RESERVED)) return acc;
+    if (key.startsWith(__RESERVED) || key.startsWith(__COLOR_MODE)) return acc;
     acc[key.replace(__PREFIX, "")] = rawState[key];
     return acc;
   }, {});
 
-  const data = {...rawValues, ...additionalData.value};
+  const data = {...rawValues};
 
   const sortedData = Object.keys(data)
       .sort()
@@ -306,8 +307,8 @@ watch(() => colorMode.preference, (newPreference) => {
         open ? 'translate-x-0' : '-translate-x-full'
     ]">
     <div
-        class="flex flex-col h-full shadow-md min-w-[530px] w-[530px] max-w-[1400px] resize-x py-4 px-2 overflow-y-auto dark:bg-zinc-900 bg-white dark:text-white">
-      <div>
+        class="flex flex-col h-full shadow-md w-screen sm:min-w-[530px] sm:w-[530px] max-w-[1400px] resize-x py-4 px-2 overflow-y-auto dark:bg-zinc-900 bg-white dark:text-white">
+    <div>
         <!-- Top Header -->
         <div class="flex justify-between items-center">
           <div class="flex gap-4 items-center">
