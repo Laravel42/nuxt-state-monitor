@@ -1,0 +1,60 @@
+{
+  "name": "nuxt-state-monitor",
+  "version": "1.0.2",
+  "description": "Created by Laravel 42, the useState visualizer enables developers to efficiently manage and track state in Nuxt applications. This intuitive tool offers real-time insights into state changes, enhancing debugging and overall state management.",
+  "repository": "Laravel42/nuxt-state-monitor",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/module.mjs",
+      "require": "./dist/module.cjs"
+    }
+  },
+  "main": "./dist/module.cjs",
+  "types": "./dist/types.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepack": "nuxt-module-build build",
+    "dev": "nuxi dev playground",
+    "dev:build": "nuxi build playground",
+    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
+    "release": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest watch",
+    "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit",
+    "link": "npm link"
+  },
+  "dependencies": {
+    "@nuxt/kit": "^3.12.4",
+    "@nuxtjs/color-mode": "^3.5.1",
+    "@nuxtjs/google-fonts": "^3.2.0",
+    "@nuxtjs/tailwindcss": "^6.12.1",
+    "highlight.js": "^11.10.0",
+    "nuxt": "^3.13.2",
+    "tailwindcss": "^3.4.11"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.11.1",
+    "@nuxt/devtools": "^1.3.9",
+    "@nuxt/eslint-config": "^0.3.13",
+    "@nuxt/module-builder": "^0.8.1",
+    "@nuxt/schema": "^3.12.4",
+    "@nuxt/test-utils": "^3.13.1",
+    "@types/node": "^20.14.11",
+    "changelogen": "^0.5.5",
+    "eslint": "^8.56.0",
+    "eslint-plugin-vue": "^9.28.0",
+    "globals": "^15.9.0",
+    "nuxt-headlessui": "^1.2.0",
+    "sass": "^1.79.5",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.7.0",
+    "vitest": "^2.0.3",
+    "vue-tsc": "^2.0.26"
+  }
+}

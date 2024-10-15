@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "name": "nuxt-state-monitor-playground",
+  "type": "module",
+  "scripts": {
+    "dev": "nuxi dev",
+    "build": "nuxi build",
+    "generate": "nuxi generate"
+  },
+  "dependencies": {
+    "@nuxtjs/google-fonts": "^3.2.0",
+    "@nuxtjs/tailwindcss": "^6.12.1",
+    "nuxt": "^3.12.4"
+  }
+}
