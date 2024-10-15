@@ -7,12 +7,12 @@
     "module": true,
     "resourceType": "script"
   },
-  "/Users/secret/Web/0Laravel42/plugins/nuxt-state-monitor/node_modules/nuxt/dist/app/entry.js": {
+  "/Users/dunker04516/nuxt-state-monitor/node_modules/nuxt/dist/app/entry.js": {
     "resourceType": "script",
     "module": true,
     "prefetch": true,
     "preload": true,
     "isEntry": true,
-    "file": "/Users/secret/Web/0Laravel42/plugins/nuxt-state-monitor/node_modules/nuxt/dist/app/entry.js"
+    "file": "/Users/dunker04516/nuxt-state-monitor/node_modules/nuxt/dist/app/entry.js"
   }
 }

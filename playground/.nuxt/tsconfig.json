@@ -96,7 +96,7 @@
         "./imports"
       ],
       "#app-manifest": [
-        "./manifest/meta/dev.json"
+        "./manifest/meta/dev"
       ],
       "#build": [
         "."
@@ -150,8 +150,8 @@
     "../../node_modules/@nuxtjs/color-mode/dist/runtime",
     "../../node_modules/nuxt-headlessui/runtime",
     "../../node_modules/nuxt-headlessui/dist/runtime",
-    "../../../../../../../secre/runtime",
-    "../../../../../../../secre/dist/runtime",
+    "../../../../dunke/runtime",
+    "../../../../dunke/dist/runtime",
     "../../node_modules/@nuxt/devtools/runtime",
     "../../node_modules/@nuxt/devtools/dist/runtime",
     "../../node_modules/@nuxt/telemetry/runtime",
@@ -176,8 +176,8 @@
     "../../node_modules/@nuxtjs/color-mode/dist/runtime/server",
     "../../node_modules/nuxt-headlessui/runtime/server",
     "../../node_modules/nuxt-headlessui/dist/runtime/server",
-    "../../../../../../../secre/runtime/server",
-    "../../../../../../../secre/dist/runtime/server",
+    "../../../../dunke/runtime/server",
+    "../../../../dunke/dist/runtime/server",
     "../../node_modules/@nuxt/devtools/runtime/server",
     "../../node_modules/@nuxt/devtools/dist/runtime/server",
     "../../node_modules/@nuxt/telemetry/runtime/server",
