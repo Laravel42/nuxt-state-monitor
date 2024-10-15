@@ -8,6 +8,10 @@
         --l42-1-dark: #818CF8;
     }
 
+    .font-debug {
+        font-family: 'Zilla Slab', serif !important;
+    }
+
     input[type="search"]::-webkit-search-decoration,
     input[type="search"]::-webkit-search-cancel-button,
     input[type="search"]::-webkit-search-results-button,
@@ -136,10 +140,7 @@
             }
 
             & code {
-                font-weight: 400;
-                font-family: 'Zilla Slab', serif !important;
-
-                @apply font-debug text-xs overflow-hidden;
+                @apply font-debug text-xs overflow-hidden font-semibold;
 
                 .code-l42-attr {
                     counter-increment: section;
