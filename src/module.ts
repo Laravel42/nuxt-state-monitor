@@ -32,11 +32,11 @@ export default defineNuxtModule<ModuleOptions>({
         })
 
         await installModule('@nuxtjs/tailwindcss', {
-            configPath: resolve(runtimeDir, 'tailwind.config.ts'),
-        })
-
-        await installModule('tailwindcss', {
-            configPath: resolve(runtimeDir, 'tailwind.config.ts'),
+            exposeConfig: true,
+            config: {
+                darkMode: 'class' as const
+            },
+            configPath: resolve('./runtime/tailwind.config')
         })
 
         await installModule('@nuxtjs/color-mode', {
