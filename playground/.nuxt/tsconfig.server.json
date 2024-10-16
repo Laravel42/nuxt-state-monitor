@@ -103,6 +103,12 @@
       ],
       "#vue-router": [
         "./vue-router"
+      ],
+      "#tailwind-config": [
+        "./tailwind.config"
+      ],
+      "#tailwind-config/*": [
+        "./tailwind.config/*"
       ]
     },
     "lib": [
@@ -115,7 +121,6 @@
     "./types/nitro-nuxt.d.ts",
     "../../node_modules/@nuxtjs/google-fonts/runtime/server",
     "../../node_modules/@nuxtjs/tailwindcss/runtime/server",
-    "../../node_modules/tailwindcss/runtime/server",
     "../../node_modules/@nuxtjs/color-mode/runtime/server",
     "../../node_modules/nuxt-headlessui/runtime/server",
     "../../../../dunke/runtime/server",

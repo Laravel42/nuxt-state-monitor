@@ -14,6 +14,7 @@
 /// <reference path="imports.d.ts" />
 /// <reference path="types/imports.d.ts" />
 /// <reference path="schema/nuxt.schema.d.ts" />
+/// <reference path="types/tailwind.config.d.ts" />
 /// <reference path="types/nitro.d.ts" />
 
 export {}
