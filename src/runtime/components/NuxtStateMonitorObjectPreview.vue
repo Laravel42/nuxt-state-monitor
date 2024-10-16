@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref, computed } from 'vue';
-import { useNuxtApp } from 'nuxt/app';
 import type { ValueType } from '../utils/interfaces';
-
 
 const props = defineProps({
   value: { type: [Array, Object, Boolean, String, Number, null] as unknown as () => ValueType, required: true },
@@ -14,16 +12,8 @@ const props = defineProps({
 const codeTag = ref<HTMLElement>();
 const codeTagPretty = ref<HTMLElement>();
 
-const { $hljs } = useNuxtApp() as any;
 
-const initCodeTag = () => {
-  $hljs.configure({
-    classPrefix: 'code-l42-',
-  });
-
-    $hljs.highlightElement(codeTag.value);
-    $hljs.highlightElement(codeTagPretty.value);
-};
+const initCodeTag = () => {};
 
 const countLines = computed(() => JSON.stringify(props.value, null, 2).split('\n').length);
 
@@ -42,16 +32,15 @@ defineEmits(['toggle']);
         <li v-if="countLines == 1">&nbsp;</li>
       </ul>
       <!-- Simple code -->
-      <pre class="collapsed truncate" v-show="!expanded"><code
+      <pre class="collapsed language-javascript truncate" v-show="!expanded"><code
             ref="codeTag"
-            class="language-json"
             v-html="JSON.stringify(value)"></code>
       </pre>
 
       <!-- Pretty formatted code -->
       <pre v-show="expanded"><code
             ref="codeTagPretty"
-            class="language-json"
+            class="language-javascript"
             v-html="JSON.stringify(value, null, 2)"></code>
       </pre>
 

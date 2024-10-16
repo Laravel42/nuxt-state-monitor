@@ -1,7 +1,6 @@
-import {defineNuxtModule, addComponentsDir, createResolver, installModule, addComponent, addPlugin} from '@nuxt/kit'
-import {fileURLToPath} from "node:url";
+import {defineNuxtModule, addComponentsDir, createResolver, installModule} from '@nuxt/kit'
+import {fileURLToPath} from 'node:url';
 
-// Module options TypeScript interface definition
 export interface ModuleOptions {
     [key: string]: unknown
 }
@@ -18,7 +17,6 @@ export default defineNuxtModule<ModuleOptions>({
         const runtimeDir = fileURLToPath(new URL('../src/runtime', import.meta.url))
         const resolver =  createResolver(import.meta.url)
 
-        // Asegurarse de que el CSS de Tailwind se incluya
         _nuxt.options.css.push(resolve('./runtime/tailwind.css'))
 
         await installModule('@nuxtjs/google-fonts', {
@@ -33,13 +31,11 @@ export default defineNuxtModule<ModuleOptions>({
             display: 'swap',
         })
 
-        _nuxt.options.modules.push("@nuxtjs/tailwindcss");
-
-        await installModule("@nuxtjs/tailwindcss", {
-            configPath: resolve(runtimeDir, "tailwind.config"),
+        await installModule('@nuxtjs/tailwindcss', {
+            configPath: resolve('./runtime/tailwind.config'),
         });
 
-        _nuxt.options.modules.push("@nuxtjs/color-mode");
+        _nuxt.options.modules.push('@nuxtjs/color-mode');
 
         await installModule('@nuxtjs/color-mode', {
             fallback: 'light',
@@ -47,7 +43,7 @@ export default defineNuxtModule<ModuleOptions>({
             storageKey: 'nuxt-color-mode'
         })
 
-        _nuxt.options.modules.push("nuxt-headlessui");
+        _nuxt.options.modules.push('nuxt-headlessui');
 
         await installModule('nuxt-headlessui', {
             headlessui: {
@@ -62,8 +58,6 @@ export default defineNuxtModule<ModuleOptions>({
         await addComponentsDir({
             path: resolver.resolve('runtime/icons/')
         })
-
-        addPlugin(resolve('runtime/plugins/highlight'))
 
         _nuxt.options.build.transpile.push(runtimeDir)
     },
