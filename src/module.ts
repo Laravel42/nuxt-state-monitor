@@ -1,4 +1,4 @@
-import {defineNuxtModule, addComponentsDir, createResolver, installModule} from '@nuxt/kit'
+import {defineNuxtModule, addComponentsDir, createResolver, installModule, addPlugin} from '@nuxt/kit'
 import {fileURLToPath} from 'node:url';
 
 export interface ModuleOptions {
@@ -58,6 +58,8 @@ export default defineNuxtModule<ModuleOptions>({
         await addComponentsDir({
             path: resolver.resolve('runtime/icons/')
         })
+
+        addPlugin(resolve('./runtime/plugins/highlight'))
 
         _nuxt.options.build.transpile.push(runtimeDir)
     },

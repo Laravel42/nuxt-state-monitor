@@ -135,45 +135,48 @@ input[type="search"]::-webkit-search-results-decoration {
         @apply relative dark:bg-zinc-800 dark:border-zinc-700 border bg-neutral-100 h-fit rounded-md mt-2 w-full;
 
         .code-l42-line {
-            @apply dark:text-neutral-200 text-l42-1;
+            @apply dark:text-neutral-200 text-l42-1 text-sm;
             user-select: none;
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
         }
 
-        & pre {
-            @apply overflow-hidden w-full;
+        & pre[class*=language-] {
+            @apply overflow-hidden w-full bg-transparent p-0 m-0;
 
             &.collapsed {
                 @apply px-1.5 py-0.5;
 
-                [class^="code-l42-"] {
+                [class^="hljs-"] {
                     @apply px-0.5;
                 }
             }
 
             & code {
-                @apply font-debug text-xs overflow-hidden;
+                @apply font-debug text-sm overflow-hidden p-0 m-0 h-full w-full;
+                [class^="hljs-"]:before {
+                    @apply bg-green-500;
+                }
 
-                .code-l42-attr {
+                .hljs-attr {
                     counter-increment: section;
                     @apply dark:text-neutral-200 text-zinc-900;
                 }
 
-                .code-l42-string {
+                .hljs-string {
                     @apply dark:text-l42-1-dark text-l42-1;
                 }
 
-                .code-l42-number {
+                .hljs-number {
                     @apply dark:text-l42-1-dark text-l42-1;
                 }
 
-                .code-l42-keyword {
+                .hljs-keyword {
                     @apply dark:text-l42-1-dark text-l42-1;
                 }
 
-                .code-l42-punctuation {
+                .hljs-punctuation {
                     counter-increment: section;
                     @apply dark:text-zinc-400 text-zinc-900;
                 }

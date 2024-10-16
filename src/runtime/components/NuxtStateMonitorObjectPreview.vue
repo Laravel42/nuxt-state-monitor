@@ -17,6 +17,10 @@ const initCodeTag = () => {};
 
 const countLines = computed(() => JSON.stringify(props.value, null, 2).split('\n').length);
 
+const stringifyValue = computed(() => {
+  return JSON.stringify(props.value, null, 2)
+})
+
 onMounted(() => {
   initCodeTag();
 });
@@ -27,25 +31,29 @@ defineEmits(['toggle']);
 <template>
   <div class="flex dark:text-neutral-200 text-zinc-900">
     <div class="code-editor flex gap-2 items-start justify-items-start relative h-full overflow-hidden">
-      <ul v-if="expanded" class="flex-1 dark:bg-zinc-700 bg-neutral-100 h-full px-1.5 pb-2 border-green flex flex-col">
-        <li v-for="line in countLines" :key="line" class="font-debug code-l42-line" v-html="line"></li>
+      <ul v-if="expanded" class="dark:bg-zinc-700 bg-neutral-100 h-full px-1.5 border-green flex flex-col">
+        <li v-for="line in countLines" :key="line" class="font-debug code-l42-line text-sm" v-html="line"></li>
         <li v-if="countLines == 1">&nbsp;</li>
       </ul>
-      <!-- Simple code -->
-      <pre class="collapsed language-javascript truncate" v-show="!expanded"><code
-            ref="codeTag"
-            v-html="JSON.stringify(value)"></code>
-      </pre>
 
-      <!-- Pretty formatted code -->
-      <pre v-show="expanded"><code
-            ref="codeTagPretty"
-            class="language-javascript"
-            v-html="JSON.stringify(value, null, 2)"></code>
+      <!-- Simple code -->
+      <pre class="collapsed truncate px-1.5" v-show="!expanded"><code
+          class="text-sm font-debug"
+          ref="codeTag"
+          v-html="JSON.stringify(value, null, 2)"></code>
       </pre>
+      <client-only>
+        <VCodeBlock
+            v-if="expanded"
+            :code="stringifyValue"
+            highlightjs
+            lang="json"
+            :copyButton="false"
+        />
+      </client-only>
 
       <div
-          :class="['text-white', label != null ? 'flex flex-1 items-center justify-center gap-2 py-1 px-2 rounded-tl-md rounded-bl-md dark:bg-zinc-700 bg-l42-1' : '']">
+          :class="['text-white', label != null ? 'flex flex-1 items-center justify-center gap-2 py-1 px-2 rounded-tl-md rounded-bl-md dark:bg-indigo-600 bg-l42-1' : '']">
         <span v-if="label" class="capitalize text-xs">{{ label }}</span>
       </div>
     </div>
