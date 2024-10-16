@@ -24,7 +24,7 @@ defineEmits(["change", "toggleExpand", "error"])
     <NuxtStateMonitorSwitch
         v-if="typeof value == 'boolean'"
         :value="value"
-        @change="(e: any) => $emit('change', {value: e.target?.checked, key: keyValue})"
+        @change="(e: any) => $emit('change', {value: e, key: keyValue})"
     />
     <NuxtStateMonitorInput
         :value="value"
