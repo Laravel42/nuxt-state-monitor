@@ -28,4 +28,3 @@ export { withCtx, withDirectives, withKeys, withMemo, withModifiers, withScopeId
 export { injectHead, useHead, useSeoMeta, useHeadSafe, useServerHead, useServerSeoMeta, useServerHeadSafe } from '@unhead/vue';
 export { useColorMode } from '../../node_modules/@nuxtjs/color-mode/dist/runtime/composables';
 export { provideUseId as provideHeadlessUseId } from '../../node_modules/@headlessui/vue/dist/headlessui.esm';
-export { useNuxtDevTools } from '../../node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools';
