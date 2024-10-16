@@ -1,4 +1,4 @@
-import {defineNuxtModule, addComponentsDir, createResolver, installModule, addComponent} from '@nuxt/kit'
+import {defineNuxtModule, addComponentsDir, createResolver, installModule, addComponent, addPlugin} from '@nuxt/kit'
 import {fileURLToPath} from "node:url";
 
 // Module options TypeScript interface definition
@@ -63,17 +63,7 @@ export default defineNuxtModule<ModuleOptions>({
             path: resolver.resolve('runtime/icons/')
         })
 
-       /* await addComponent({
-            name: "NuxtStateMonitor",
-            export: "NuxtStateMonitor",
-            filePath: resolver.resolve('runtime/components/NuxtStateMonitor.vue')
-        })
-
-        await addComponent({
-            name: "NuxtStateMonitorDropdownViewer",
-            export: "NuxtStateMonitorDropdownViewer",
-            filePath: resolver.resolve('runtime/components/NuxtStateMonitorDropdownViewer.vue')
-        })*/
+        addPlugin(resolve('runtime/plugins/highlight'))
 
         _nuxt.options.build.transpile.push(runtimeDir)
     },
