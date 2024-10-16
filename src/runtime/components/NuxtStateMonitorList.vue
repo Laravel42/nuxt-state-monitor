@@ -86,7 +86,7 @@ const handleCopied = (key: string) => {
   <ul class="mt-0.5 mx-2" v-if="Object.keys(filteredData).length > 0">
     <li v-for="(value, key) in filteredData" :key="key"
         @mouseleave="$emit('close')"
-        :class="`group text-sm border-b dark:border-zinc-700 border-neutral-300 py-1 mx-0 relative ${isObject(value) ? '' : 'flex items-center'} ${isHidden(key.toString()) ? 'hidden' : ''}`">
+        :class="`text-sm border-b dark:border-zinc-700 border-neutral-300 py-1 mx-0 relative ${isObject(value) ? '' : 'flex items-center'} ${isHidden(key.toString()) ? 'hidden' : ''}`">
       <div class="flex items-center justify-center w-fit">
         <DotIcon v-if="key == updatedKey" class="dark:text-l42-1-dark text-l42-1"/>
 

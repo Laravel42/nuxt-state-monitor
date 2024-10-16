@@ -7,6 +7,8 @@ import Light from "../icons/LightIcon.vue";
 import Moon from "../icons/MoonIcon.vue";
 import {StateData, UpdatedState, ValueType, ViewState} from "../utils/interfaces";
 import {Switch} from '@headlessui/vue'
+import {useState} from "nuxt/app"
+import {ColorModeInstance, ColorModeStorage} from "@nuxtjs/color-mode/dist/runtime/types";
 
 const updated = ref<UpdatedState>({
   key: null,
@@ -284,14 +286,15 @@ const importJsonState = async (event: Event) => {
 
 const importJsonStateInput = ref<HTMLInputElement>()
 
-const colorMode = useColorMode();
-const themeLight = ref(colorMode.preference === 'light');
+const colorMode = useState<ColorModeInstance>("color-mode");
+
+const themeLight = ref(colorMode.value.preference === 'light');
 
 watch(themeLight, (newTheme) => {
-  colorMode.preference = newTheme ? 'light' : 'dark';
+  colorMode.value.preference = newTheme ? 'light' : 'dark';
 });
 
-watch(() => colorMode.preference, (newPreference) => {
+watch(() => colorMode.value.preference, (newPreference) => {
   themeLight.value = newPreference === 'light';
 });
 
@@ -383,15 +386,15 @@ watch(() => colorMode.preference, (newPreference) => {
 
         <div class="flex justify-between gap-2 items-center">
           <NuxtStateMonitorButton @click="importJsonStateInput?.click()">
-            <UploadIcon class="dark:group-hover:text-white group-hover:text-l42-1"/>
-            Import State
+            <UploadIcon class="dark:group-hover:text-indigo-300 group-hover:text-l42-1"/>
+            Import JSON State
             <input class="w-0 h-0 invisible" ref="importJsonStateInput" type="file" @change="importJsonState"
                    accept="application/JSON"/>
           </NuxtStateMonitorButton>
 
           <NuxtStateMonitorButton @click="exportJsonState">
-            <DownloadIcon class="dark:group-hover:text-white group-hover:text-l42-1"/>
-            Export State
+            <DownloadIcon class="dark:group-hover:text-indigo-300 group-hover:text-l42-1"/>
+            Export JSON State
           </NuxtStateMonitorButton>
         </div>
       </div>
