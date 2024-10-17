@@ -87,7 +87,7 @@ const exportJsonState = (): void => {
     return acc;
   }, {});
 
-  const data = {...rawValues, ...additionalData.value};
+  const data = {...rawValues};
 
   const sortedData = Object.keys(data)
       .sort()
