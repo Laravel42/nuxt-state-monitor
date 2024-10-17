@@ -8,7 +8,7 @@ import Moon from "../icons/MoonIcon.vue";
 import {StateData, UpdatedState, ValueType, ViewState} from "../utils/interfaces";
 import {Switch} from '@headlessui/vue'
 import {useState} from "nuxt/app"
-import {ColorModeInstance, ColorModeStorage} from "@nuxtjs/color-mode/dist/runtime/types";
+import {ColorModeInstance} from "@nuxtjs/color-mode/dist/runtime/types";
 
 const updated = ref<UpdatedState>({
   key: null,
@@ -267,7 +267,9 @@ const importJsonState = async (event: Event) => {
       const jsonObj = JSON.parse(jsonString);
       if (isObject(jsonObj)) {
         Object.keys(jsonObj).forEach((key) => {
-          useState(key).value = jsonObj[key];
+          if(key !== 'color-mode'){
+            useState(key).value = jsonObj[key];
+          }
         });
       } else {
         console.error("Invalid JSON format");
