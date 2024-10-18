@@ -2,22 +2,19 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-@layer {
-    :root {
-        --l42-1: #5316D8;
-        --l42-1-dark: #818CF8;
-    }
+:root {
+    --l42-1: #5316D8;
+    --l42-1-dark: #818CF8;
+}
 
-    .font-debug {
-        font-family: 'Zilla Slab', serif !important;
-    }
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    display: none;
+}
 
-    input[type="search"]::-webkit-search-decoration,
-    input[type="search"]::-webkit-search-cancel-button,
-    input[type="search"]::-webkit-search-results-button,
-    input[type="search"]::-webkit-search-results-decoration {
-        display: none;
-    }
+@layer utilities {
 
     /* Tooltip styles */
     .tooltip {
@@ -85,6 +82,23 @@
         }
     }
 
+    .check-container {
+        border-radius: 12px;
+        background-color: #E2E8F0;
+        display: flex;
+
+        .true-check {
+            transition: 0.5s all ease-in-out;
+            opacity: 0;
+        }
+
+        .false-check {
+            transition: 0.5s all ease-in-out;
+            opacity: 1;
+            transform: translateX(-100%);
+        }
+    }
+
     input:checked + .check-container {
         background-color: #00C16A;
 
@@ -118,7 +132,7 @@
 
     /* Code editor */
     .code-editor {
-        @apply relative dark:bg-zinc-800 dark:border-zinc-700 border bg-neutral-200 h-fit rounded-md mt-2 w-full;
+        @apply relative dark:bg-zinc-800 dark:border-zinc-700 border bg-neutral-100 h-fit rounded-md mt-2 w-full;
 
         .code-l42-line {
             @apply dark:text-neutral-200 text-l42-1;
@@ -140,9 +154,7 @@
             }
 
             & code {
-                font-family: "Zilla Slab", 'sans-serif' !important;
-                font-weight: 400;
-                @apply text-xs overflow-hidden;
+                @apply font-debug text-xs overflow-hidden;
 
                 .code-l42-attr {
                     counter-increment: section;

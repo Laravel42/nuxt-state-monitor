@@ -1,7 +1,6 @@
 import {defineNuxtModule, addComponentsDir, createResolver, installModule} from '@nuxt/kit'
-import {fileURLToPath} from "node:url";
+import {fileURLToPath} from 'node:url';
 
-// Module options TypeScript interface definition
 export interface ModuleOptions {
     [key: string]: unknown
 }
@@ -16,6 +15,7 @@ export default defineNuxtModule<ModuleOptions>({
     defaults: {},
     async setup(_options, _nuxt) {
         const runtimeDir = fileURLToPath(new URL('../src/runtime', import.meta.url))
+        const resolver =  createResolver(import.meta.url)
 
         _nuxt.options.css.push(resolve('./runtime/tailwind.css'))
 
@@ -32,18 +32,18 @@ export default defineNuxtModule<ModuleOptions>({
         })
 
         await installModule('@nuxtjs/tailwindcss', {
-            exposeConfig: true,
-            config: {
-                darkMode: 'class' as const
-            },
-            configPath: resolve('./runtime/tailwind.config')
-        })
+            configPath: resolve('./runtime/tailwind.config'),
+        });
+
+        _nuxt.options.modules.push('@nuxtjs/color-mode');
 
         await installModule('@nuxtjs/color-mode', {
             fallback: 'light',
             storage: 'localStorage',
             storageKey: 'nuxt-color-mode'
         })
+
+        _nuxt.options.modules.push('nuxt-headlessui');
 
         await installModule('nuxt-headlessui', {
             headlessui: {
@@ -52,14 +52,13 @@ export default defineNuxtModule<ModuleOptions>({
         })
 
         await addComponentsDir({
-            path: resolve('runtime/components')
+            path: resolver.resolve('runtime/components/')
         })
 
         await addComponentsDir({
-            path: resolve('runtime/icons')
+            path: resolver.resolve('runtime/icons/')
         })
 
-        const checkruntimeDir = fileURLToPath(new URL('./runtime', import.meta.url))
-        _nuxt.options.build.transpile.push(checkruntimeDir)
+        _nuxt.options.build.transpile.push(runtimeDir)
     },
 })
