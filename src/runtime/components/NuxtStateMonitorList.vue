@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {computed, toRefs, ref} from "vue";
 import {htmlKey} from "../utils/index";
-import {__nuxt_devtools, __RESERVED, colorMode} from "../utils/constants"
+import {__nuxt_devtools, __RESERVED, __nuxt_color_mode} from "../utils/constants"
 import {ValueType} from "../utils/interfaces";
 
 const props = defineProps({
@@ -58,7 +58,7 @@ const filteredData = computed<Record<string, ValueType>>(() => {
         const normalizedKey = key.toLowerCase();
         const normalizedSearch = props.searchTerm?.toLowerCase() || '';
 
-        return !key.startsWith(colorMode) && !key.startsWith('__RESERVED') && key !== __nuxt_devtools && (!normalizedSearch || normalizedKey.includes(normalizedSearch));
+        return !key.startsWith(__nuxt_color_mode) && !key.startsWith('__RESERVED') && key !== __nuxt_devtools && (!normalizedSearch || normalizedKey.includes(normalizedSearch));
       })
       .reduce((acc: Record<string, ValueType>, key: string) => {
         acc[key] = data.value[key] as ValueType;

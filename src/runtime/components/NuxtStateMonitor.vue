@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {ref, watch, toRaw} from "vue";
-import {__PREFIX, __RESERVED} from "../utils/constants"
+import {__nuxt_color_mode, __PREFIX, __RESERVED} from "../utils/constants"
 import {__JSON, isObject} from "../utils"
 import NuxtStateMonitorList from "./NuxtStateMonitorList.vue";
 import Light from "../icons/LightIcon.vue";
@@ -82,7 +82,7 @@ const copyToClipboard = (key: string, isAdditional: boolean = false) => {
 const exportJsonState = (): void => {
   const rawState = toRaw(state);
   const rawValues = Object.keys(rawState).reduce((acc: Record<string, unknown>, key: string) => {
-    if (key.startsWith(__RESERVED)) return acc;
+    if (key.startsWith(__RESERVED) || key.startsWith(__nuxt_color_mode)) return acc;
     acc[key.replace(__PREFIX, "")] = rawState[key];
     return acc;
   }, {});

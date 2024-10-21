@@ -21,7 +21,7 @@
 <script setup lang="ts">
 import {computed, ref} from "vue"
 import type {ValueType} from "tailwindcss/types/config";
-import {__nuxt_devtools, __PREFIX, colorMode} from "../utils/constants";
+import {__nuxt_devtools, __PREFIX, __nuxt_color_mode} from "../utils/constants";
 import {StateData} from "../utils/interfaces";
 
 let states = (useState<StateData>() as unknown as { _object: Record<string, unknown> })._object;
@@ -29,7 +29,7 @@ let states = (useState<StateData>() as unknown as { _object: Record<string, unkn
 // eslint-disable-next-line
 const filteredStates: Record<string, any> = computed(() => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const {[__nuxt_devtools]: __devtools_ignore, [colorMode]: __color_ignore, ...data} = states;
+  const {[__nuxt_devtools]: __devtools_ignore, [__nuxt_color_mode]: __color_ignore, ...data} = states;
   return data
 })
 
