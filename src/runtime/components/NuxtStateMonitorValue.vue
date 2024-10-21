@@ -5,41 +5,41 @@ import ErrorCircleFilled from "../icons/ErrorCircleFilledIcon.vue";
 import type {ValueType, DisplayValue} from "../utils/interfaces";
 
 const props = defineProps({
-  value: {type: [Boolean, String, Number, Array, Object] as unknown as () => ValueType, required: true},
-  updated: {type: Boolean, required: false, default: false},
-  expanded: {type: Boolean, required: false, default: false},
-  label: {type: String, required: false, default: () => null},
+    value: {type: [Boolean, String, Number, Array, Object] as unknown as () => ValueType, required: true},
+    updated: {type: Boolean, required: false, default: false},
+    expanded: {type: Boolean, required: false, default: false},
+    label: {type: String, required: false, default: () => null},
 });
 
 
 const type = computed(() => typeof props.value)
 
 const displayValue = computed<DisplayValue | unknown>(() => {
-  const value = props.value;
+    const value = props.value;
 
-  if (!value) return 'empty';
+    if (!value) return 'empty';
 
-  if (typeof value === 'object') {
-    return JSON.stringify(value, null, 2);
-  }
-  if (typeof value === 'undefined') return 'undefined';
-  if (typeof value === 'boolean') return value ? 'check' : 'error';
+    if (typeof value === 'object') {
+        return JSON.stringify(value, null, 2);
+    }
+    if (typeof value === 'undefined') return 'undefined';
+    if (typeof value === 'boolean') return value ? 'check' : 'error';
 
-  if ('string' === typeof value) {
-    const isShortened = value.length > 30 || props.updated;
-    return {tooltip: value, shortened: isShortened};
-  }
+    if ('string' === typeof value) {
+        const isShortened = value.length > 30 || props.updated;
+        return {tooltip: value, shortened: isShortened};
+    }
 
-  if (Array.isArray(value)) {
-    const isShortened = value.length > 30 || props.updated;
-    return {tooltip: value, shortened: isShortened};
-  }
+    if (Array.isArray(value)) {
+        const isShortened = value.length > 30 || props.updated;
+        return {tooltip: value, shortened: isShortened};
+    }
 
-  if (typeof value === 'number') {
+    if (typeof value === 'number') {
+        return {tooltip: String(value), shortened: false};
+    }
+
     return {tooltip: String(value), shortened: false};
-  }
-
-  return {tooltip: String(value), shortened: false};
 });
 
 

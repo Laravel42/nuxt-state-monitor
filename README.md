@@ -25,11 +25,6 @@ Find and replace all on all files (CMD+SHIFT+F):
 - ⚡ **Zero Configuration**: Minimal setup and configuration needed.
 - 💻 **Developer-Friendly UI**: A sleek and intuitive UI to track and manage states.
 
-## Requirements
-
-- Nuxt 3.x
-- Vue 3.x
-
 ## Installation
 
 ``` 
@@ -48,7 +43,11 @@ Update your ```nuxt.config```:
 
 ## Usage
 
-Add the component in App.vue to enable monitor everywhere, or in single pages if you want to monitor specific views
+Add the component in App.vue to enable monitor everywhere, or in single pages if you want to enable monitor for certain pages only.
+
+```<NuxtStateMonitor/>```
+
+If you want to pass custom data to the monitor, you can do so by passing the data as a prop.
 
 ```<NuxtStateMonitor custom-data="additional"/>```
 
@@ -63,5 +62,4 @@ This repository is licensed under the [MIT License](LICENSE). Feel free to use t
 ## Contacts
 
 🔖 **Mail**: hello@laravel42.com
-
 🔖 **Web**: https://laravel42.com
