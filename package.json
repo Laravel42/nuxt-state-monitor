@@ -1,6 +1,6 @@
 {
   "name": "nuxt-state-monitor",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Created by Laravel 42, the useState visualizer enables developers to efficiently manage and track state in Nuxt applications. This intuitive tool offers real-time insights into state changes, enhancing debugging and overall state management.",
   "repository": "Laravel42/nuxt-state-monitor",
   "license": "MIT",
